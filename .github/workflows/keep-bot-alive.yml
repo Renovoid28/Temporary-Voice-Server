@@ -2,7 +2,7 @@ name: Keep Replit Bot Alive
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Setiap 5 menit
+    - cron: '*/2 * * * *'  # Setiap 2 menit
   workflow_dispatch:       # Bisa dijalankan manual juga
 
 jobs:
