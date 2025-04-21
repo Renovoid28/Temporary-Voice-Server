@@ -1,0 +1,25 @@
+name: Keep Bot Alive
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Menjadwalkan aksi untuk berjalan setiap 5 menit
+  workflow_dispatch:  # Agar bisa dijalankan manual juga jika diperlukan
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Sesuaikan dengan versi Node.js yang digunakan bot kamu
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run bot script
+      run: node bot.js  # Sesuaikan dengan nama file bot kamu
