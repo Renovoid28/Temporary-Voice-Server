@@ -1,25 +1,13 @@
-name: Keep Bot Alive
+name: Keep Replit Bot Alive
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Menjadwalkan aksi untuk berjalan setiap 5 menit
-  workflow_dispatch:  # Agar bisa dijalankan manual juga jika diperlukan
+    - cron: '*/5 * * * *'  # Setiap 5 menit
+  workflow_dispatch:       # Bisa dijalankan manual juga
 
 jobs:
-  keep-alive:
+  ping-replit:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'  # Sesuaikan dengan versi Node.js yang digunakan bot kamu
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Run bot script
-      run: node bot.js  # Sesuaikan dengan nama file bot kamu
+      - name: Curl Replit Bot
+        run: curl -s https://683ab69e-f79c-403a-887a-b9d575e407a7-00-3awk0ge733zzm.sisko.replit.dev/
